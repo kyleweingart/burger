@@ -1,5 +1,7 @@
+// Require my mysql
 var mysql = require("mysql");
 
+// Create database connection properties
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -8,6 +10,7 @@ var connection = mysql.createConnection({
   port: 8889
 });
 
+// Connect to MySQL database
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -16,4 +19,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+// Export connection 
 module.exports = connection;

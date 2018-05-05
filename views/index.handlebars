@@ -7,8 +7,8 @@
 
         <!-- Dynamically Insert Ready Burgers Here -->
         {{#each burgers}}
-          {{#unless devoured}}
-          <form action="burger/eat/{{id}}" method="POST">
+          {{#unless this.devoured}}
+          <form action="burgers/{{id}}?_method=PUT" method="POST">
             <div class="input-group">
               <li class="form-control">{{id}}. {{burger_name}}</li>
                 <span class="input-group-btn">
@@ -42,4 +42,32 @@
       </div>
     </div>
   </center>
+  {{!-- <!-- Input New Burgers Form -->
+      <form action="burger/create" method="POST"> 
+        
+        <!-- Text Area Input -->
+        <div class="row">
+          <!-- Empty Div to help center textarea -->
+          <div class="col-md-3"></div> 
+
+          <!-- Burger Input Box -->
+          <div class="form-group col-md-6">
+            <center><label for="new_burger" class="yellow_font">Request a new burger and place your order!</label></center>
+            <textarea class="form-control" rows="1" id="new_burger" name="burger_name"></textarea>
+          </div>
+
+          <!-- Empty Div to help center textarea -->
+          <div class="col-md-3"></div> 
+        </div>
+      
+        <!-- Submit Button -->
+        <center>
+          <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
+        </center>
+
+      </form>
+
+      <br> --}}
+
+    </div>
 </div>

@@ -1,40 +1,31 @@
 var connection = require("./connection.js");
 
 
+
+// Helper function for generating MySQL syntax
 function printQuestionMarks(num) {
-    var arr = [];
-  
-    for (var i = 0; i < num; i++) {
-      arr.push("?");
-    }
-  
-    return arr.toString();
-  }
-  
-  // Helper function to convert object key/value pairs to SQL syntax
-  function objToSql(ob) {
-    var arr = [];
-  
-    // loop through the keys and push the key/value as a string int arr
-    for (var key in ob) {
-      var value = ob[key];
-      // check to skip hidden properties
-      if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-        if (typeof value === "string" && value.indexOf(" ") >= 0) {
-          value = "'" + value + "'";
-        }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
-        arr.push(key + "=" + value);
-      }
-    }
-  
-    // translate array of strings to a single comma-separated string
-    return arr.toString();
-  }
-  
-  
+	var arr = [];
+
+	for (var i = 0; i < num; i++) {
+		arr.push("?");
+	}
+
+	return arr.toString();
+}
+
+// Helper function for generating My SQL syntax
+function objToSql(ob) {
+	var arr = [];
+
+	for (var key in ob) {
+		arr.push(key + "=" + ob[key]);
+	}
+
+	return arr.toString();
+}
+
+
+
 // Methods that will execute the necessary MySQL commands in the controllers. 
 // These are the methods that retrieve and store data in the database.
 // ==========================================================================================
@@ -49,64 +40,60 @@ var orm = {
       if (err) throw err;
       callback(result);
     });
-  },
-
-
-
-
-//   I'm stuck at this point- I can't seem to get this function working in the burgers_controller file- i might need to simplify this and see if i can get it to work. 
-//   create: function(table, cols, value, callback) {
- 
-
-//     connection.query(
-//       "INSERT INTO ? SET ?",
-//       {
-//         burger_name: burger_name,
-//       },
-//       function(err, result) {
-//         if (err) throw err;
-        
-
-//         callback(result);
-//       });
-
-//   },
-
-create: function(table, cols, vals, cb) {
+  }, 
+  
+  insertOne: function(table, cols, vals, callback) {
+    // Construct query string that inserts one row into the target table
     var queryString = "INSERT INTO " + table;
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+		queryString += " (";
+		queryString += cols.toString();
+		queryString += ") ";
+		queryString += "VALUES (";
+		queryString += printQuestionMarks(vals.length);
+		queryString += ") ";
 
-    console.log(queryString);
+		console.log("Insert Query String: " + queryString);
 
-    connection.query(queryString, vals, function(err, result) {
-      if (err) {
-        throw err;
-      }
+		// Perform the database query
+		connection.query(queryString, vals, function(err, result) {
+			if (err) {
+				throw err;
+			}
 
-      cb(result);
-    });
+			// Return results in callback
+			callback(result);
+		});
+
   },
+
+  updateOne: function(table, objColVals, condition, callback) {
+		// Construct a query string that updates a single value in the target table
+		var queryString = "UPDATE " + table;
+
+		queryString += " SET ";
+		queryString += objToSql(objColVals);
+		queryString += " WHERE ";
+		queryString += condition;
+
+		console.log("Update Query String: " + queryString);
+
+		// Perform the database query
+		connection.query(queryString, function(err, result) {
+			if (err) {
+				throw err;
+			}
+
+			// Return results in callback
+			callback(result);
+		});
+	}
+
 
   
   
-  updateOne: function(burgerID, callback) {
-    
-   
-    connection.query("UPDATE burgers SET ? WHERE", [{devoured:true}, {id: burgerID}],
-     function(err, result) {
-      if (err) throw err;
-      
-
-      callback(result);
-    });
-  },
 
 };
 
+// Export the orm object for use in other modules
 module.exports = orm;

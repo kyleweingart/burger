@@ -16,22 +16,19 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
-  burger.create(["burger_name"],req.body.burger_name, function(result) {
-    // Send back the ID of the new quote
-    // res.json({ id: result.insertId });
-    res.json({id: result.insertID});
+router.post("/burgers", function(req, res) {
+  burger.insertOne(["burger_name"], [req.body.burger_name], function(data) {
+    res.redirect("/");
   });
 });
 
-router.put("/burger/eat/:id", function(req, res) {
-  
+router.put("/burgers/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
 
-  burger.updateOne(req.params.id,function(){
-      res.redirect('/index');
+  burger.updateOne({ devoured: true }, condition, function(data) {
+    res.redirect("/");
   });
-   
 });
 
-
+// Export routes 
 module.exports = router;
