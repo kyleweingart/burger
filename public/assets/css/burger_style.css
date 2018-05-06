@@ -1,16 +1,21 @@
 body {
-    background-color: #bc001f;
-  }
-  
-  img {
-    width: 15%;
-  }
-  
-  .yellow_font {
-    color:  #f4c242;
-  }
-  
-  .tiny_text {
-    font-size: 11px;
-    color: #5da82f;
-  }
+  background-color: #bc001f;
+}
+
+img {
+  width: 15%;
+}
+
+.yellow_font {
+  color: #f4c242;
+}
+
+.tiny_text {
+  font-size: 11px;
+  color: #5da82f;
+}
+
+.container {
+  margin-bottom: 15px !important;
+  margin-top: 15px !important;
+}

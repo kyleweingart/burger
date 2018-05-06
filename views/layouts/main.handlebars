@@ -1,77 +1,45 @@
-
-
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <!-- Tab Title -->
-    <title>Eat da Burger!</title>
-    <!-- Tab Image -->
-    <link rel="icon" href="/assets/img/burger_img.png">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Custom Styling -->
-    <link rel="stylesheet" href="/assets/css/burger_style.css">
-  </head>
-  <body>
-  
-    <!-- Page Container -->
-    <div class="container">
-      
-      <br>
 
-      <!-- Burger Image -->
-      <center>
-        <div class="row">
-          <img src="/assets/img/burger_img.png">
-        </div>
-      </center>
+<head>
+  <!-- Tab Title -->
+  <title>Eat da Burger!</title>
+  <!-- Tab Image -->
+  <link rel="icon" href="/assets/img/burger_img.png">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="/assets/css/burger_style.css">
+</head>
 
-      <!-- Page Title -->
-      <center>
-        <h1 class="yellow_font">Eat da Burger! </h1>
-      </center>
-      
-      <br>
-      
+<body>
 
-      <!-- Burger Content from index.handlebars -->
-      {{{body}}}
+  <!-- Page Container -->
+  <div class="container">
 
 
-      <br><br>
 
-      <!-- Input New Burgers Form -->
-      <form action="/burgers" method="POST"> 
-        
-        <!-- Text Area Input -->
-        <div class="row">
-          <!-- Empty Div to help center textarea -->
-          <div class="col-md-3"></div> 
+    <!-- Burger Image -->
+    <center>
+      <div class="row">
+        <img src="/assets/img/burger_img.png">
+      </div>
+    </center>
 
-          <!-- Burger Input Box -->
-          <div class="form-group col-md-6">
-            <center><label for="new_burger" class="yellow_font">Request a new burger and place your order!</label></center>
-            <textarea class="form-control" rows="1" id="new_burger" name="burger_name"></textarea>
-          </div>
-
-          <!-- Empty Div to help center textarea -->
-          <div class="col-md-3"></div> 
-        </div>
-      
-        <!-- Submit Button -->
-        <center>
-          <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
-        </center>
-
-      </form>
-
-      <br>
-
-    </div>
-
-    <!-- Link in jQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Page Title -->
+    <center>
+      <h1 class="yellow_font">Eat da Burger! </h1>
+    </center>
 
 
-  </body>
+
+
+    <!-- Burger Content from index.handlebars -->
+    {{{body}}}
+
+
+</body>
+
 </html>
