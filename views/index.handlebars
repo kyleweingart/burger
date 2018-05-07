@@ -27,11 +27,11 @@
 
         <!-- Dynamically Insert Eaten Burgers Here -->
         {{#each burgers}} {{#if this.devoured}}
-        <form action="burgers/{{id}}?_method=DELETE" method="DELETE">
+        <form action="burgers/{{id}}?_method=DELETE" method="POST">
         <div class="input-group">
           <li class="form-control">{{burger_name}}</li>
           <span class="input-group-btn">
-            <button class="btn btn-info delete-button" type="button">Delete!</button>
+            {{!-- <button class="btn btn-info delete-button" type="button">Delete!</button> --}}
           </span>
         </div>
         </form>

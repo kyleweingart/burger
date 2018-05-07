@@ -19,3 +19,7 @@ img {
   margin-bottom: 15px !important;
   margin-top: 15px !important;
 }
+.input-group .form-control {
+  float: none !important;
+}
+

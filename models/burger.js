@@ -24,6 +24,29 @@ var burger = {
     });
   }
 };
+// working on delete button
+
+// $(document).ready(function () {
+  
+
+// $("delete-button").on("click", function(event) {
+//   console.log("working");
+//   var id = $(this).data("id");
+
+//   // Send the DELETE request.
+//   $.ajax("/burgers/" + id, {
+//     type: "DELETE"
+//   }).then(
+//     function() {
+//       console.log("deleted cat", id);
+//       // Reload the page to get the updated list
+//       location.reload();
+//     }
+//   );
+// });
+// });
+
+
 
 // Export the database functions for the controller (burgersController.js).
 module.exports = burger;
