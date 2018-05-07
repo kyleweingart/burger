@@ -2,6 +2,9 @@
 var mysql = require("mysql");
 
 // Create database connection properties
+if(process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -9,6 +12,7 @@ var connection = mysql.createConnection({
   database: "burgers_db",
   port: 8889
 });
+};
 
 // Connect to MySQL database
 connection.connect(function(err) {
