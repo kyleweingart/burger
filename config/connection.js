@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
     database: "burgers_db",
     port: 8889
   });
-}gi
+}
 
 // Connect to MySQL database
 connection.connect(function(err) {

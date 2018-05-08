@@ -1,17 +1,17 @@
 <div class="row">
   <center>
-    <!-- Left side (ready to eat) -->
+    <!-- Left side-->
     <div class="col-md-6">
-      <h4 class="red_font">Ready to eat!</h4>
-      <div id="ready_to_eat">
+      <h4>Bon Apetit!</h4>
+      <div>
 
-        <!-- Dynamically Insert Ready Burgers Here -->
+        <!-- Insert Burgers Here -->
         {{#each burgers}} {{#unless this.devoured}}
         <form action="burgers/{{id}}?_method=PUT" method="POST">
           <div class="input-group">
             <li class="form-control">{{burger_name}}</li>
             <span class="input-group-btn">
-              <button class="btn btn-success devour-button" type="submit">Devour It!</button>
+              <button class="btn btn-primary" type="submit">Hamburgle!</button>
             </span>
           </div>
         </form>
@@ -20,20 +20,21 @@
       </div>
     </div>
 
-    <!-- Right side (already eaten) -->
+    <!-- Right side-->
     <div class="col-md-6">
-      <h4 class="red_font">Already eaten!</h4>
-      <div id="already_eaten">
+      <h4>Hamburgled!</h4>
+      <div id="eaten">
 
-        <!-- Dynamically Insert Eaten Burgers Here -->
+        <!-- Insert Eaten Burgers Here -->
         {{#each burgers}} {{#if this.devoured}}
         <form action="burgers/{{id}}?_method=DELETE" method="POST">
-        <div class="input-group">
-          <li class="form-control">{{burger_name}}</li>
-          <span class="input-group-btn">
-            {{!-- <button class="btn btn-info delete-button" type="button">Delete!</button> --}}
-          </span>
-        </div>
+          <div class="input-group">
+            <li class="form-control">{{burger_name}}</li>
+            <span class="input-group-btn">
+              {{!--
+              <button class="btn btn-info delete-button" type="button">Delete!</button> --}}
+            </span>
+          </div>
         </form>
         {{/if}} {{/each}}
 
@@ -45,29 +46,33 @@
 </div>
 
 
-<!-- Input New Burgers Form -->
+<!-- Input New Burgers-->
 <form action="/burgers" method="POST">
 
-  <!-- Text Area Input -->
+  <!-- Text Area-->
   <div class="row">
-    <!-- Empty Div to help center textarea -->
+
     <div class="col-md-3"></div>
 
     <!-- Burger Input Box -->
     <div class="form-group col-md-6">
       <center>
-        <label for="new_burger" class="yellow_font">Request a new burger and place your order!</label>
+        <label for="new_burger" class="small-text">Place your burger order but watch out for the Hamburglar!</label>
       </center>
       <textarea class="form-control" rows="1" id="new_burger" name="burger_name"></textarea>
+
+      <br>
+      <center>
+
+        <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
+      </center>
     </div>
 
-    <!-- Empty Div to help center textarea -->
     <div class="col-md-3"></div>
   </div>
 
-  <!-- Submit Button -->
-  <center>
-    <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
-  </center>
+
+
+
 
 </form>
