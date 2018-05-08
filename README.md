@@ -8,4 +8,4 @@ A simple full stack application with HTML/CSS/Bootstrap on the front end, Handle
 
 ## Demo
 
-See demo [here](https://secret-wildwood-27408.herokuapp.com/)
+See demo [here].(https://secret-wildwood-27408.herokuapp.com/)
