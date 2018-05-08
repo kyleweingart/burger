@@ -1,12 +1,11 @@
-# Eat Da Burger!
-A Burger Eatin' Application With Node.js/Express/MySQL/Handlebars/Bootstrap
+# Hamburglar!
+A burger logger application built with MySQL, Node, Express, Handlebars and a homemade ORM; following the MVC design pattern. use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+
 
 ## Description
 
-This application demonstrates a simple full stack application with a front end implemented with HTML/CSS and elements from the Bootstrap framework and the backend implemented with node.js and Express. HTML templating is done with the help of Handlebars.
-
-The user may enter any burger name to add it to the menu. This also adds the new burger entry into the MySQL database. The initial burger entry is added as *available* on the menu and placed on the left side of the screen. The user may then eat any burger by clicking on it, which moves it into the adjacent column and updates its status accordingly in the database.
+A simple full stack application with HTML/CSS/Bootstrap on the front end, Handlebars for HTML generation, and using Node, MySQL, and Express on the backend to query and route application data. 
 
 ## Demo
 
-The demo of the burger eating application can be found [here](https://secret-wildwood-27408.herokuapp.com/)
+See demo [here](https://secret-wildwood-27408.herokuapp.com/)
