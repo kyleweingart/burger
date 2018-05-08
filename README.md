@@ -1,5 +1,5 @@
 # Eat Da Burger!
-A Burger Eatin' Application With Node.js/Express/MySQL/Handlebars/Materialize
+A Burger Eatin' Application With Node.js/Express/MySQL/Handlebars/Bootstrap
 
 ## Description
 
@@ -9,4 +9,4 @@ The user may enter any burger name to add it to the menu. This also adds the new
 
 ## Demo
 
-The demo of the burger eating application can be found [here](https://secret-lake-55615.herokuapp.com/).
+The demo of the burger eating application can be found [here](https://secret-wildwood-27408.herokuapp.com/)
